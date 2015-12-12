@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  remote_user: root
+
+  roles:
+    - geerlingguy.redis
+    - geerlingguy.php
+    - ansible-role-php-redis
