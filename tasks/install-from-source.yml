@@ -13,6 +13,12 @@
     accept_hostkey: yes
     depth: 1
 
+- name: Run phpize.
+  shell: >
+    phpize
+    chdir={{ php_redis_source_clone_dir }}
+# when: php_redis_installed|failed
+
 - name: Run configure script.
   shell: >
     {{ php_redis_source_configure_command }}
