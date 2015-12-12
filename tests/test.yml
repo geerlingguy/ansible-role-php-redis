@@ -2,6 +2,11 @@
 - hosts: localhost
   remote_user: root
 
+  vars:
+    # Because Travis runs on Ubuntu 12.04, PhpRedis is not available via package
+    # so we have to install from source.
+    php_redis_install_from_source: true
+
   roles:
     - geerlingguy.redis
     - geerlingguy.php

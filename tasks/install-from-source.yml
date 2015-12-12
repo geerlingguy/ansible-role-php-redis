@@ -1,0 +1,37 @@
+---
+# - name: Check if PhpRedis is installed.
+#   command: which phpredis # TODO
+#   changed_when: false
+#   failed_when: false
+#   register: php_redis_installed
+
+- name: Clone the PhpRedis repo.
+  git:
+    repo: "{{ php_redis_source_repo }}"
+    dest: "{{ php_redis_source_clone_dir }}"
+    version: "{{ php_redis_source_version }}"
+    accept_hostkey: yes
+    depth: 1
+
+- name: Run configure script.
+  shell: >
+    {{ php_redis_source_configure_command }}
+    chdir={{ php_redis_source_clone_dir }}
+# when: php_redis_installed|failed
+
+- name: Make and install PHP.
+  shell: >
+    {{ item }}
+    chdir={{ php_redis_source_clone_dir }}
+  with_items:
+    - make
+    - make install
+# when: php_redis_installed|failed
+
+- name: Ensure the Redis extension is present in PHP's configuration.
+  copy:
+    src: redis.ini
+    dest: "{{ php_extension_conf_path }}/redis.ini"
+    mode: 0644
+  notify: restart webserver
+# when: php_redis_installed|failed
