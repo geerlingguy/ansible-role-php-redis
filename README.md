@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/geerlingguy/ansible-role-php-redis.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-php-redis)
 
-Installs PhpRedis support on RedHat/CentOS/Debian/Ubuntu.
+Installs PhpRedis support on Linux.
 
 ## Requirements
 
