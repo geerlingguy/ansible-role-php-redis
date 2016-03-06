@@ -1,4 +1,5 @@
 ---
+sudo: required
 language: python
 python: "2.7"
 
@@ -34,3 +35,6 @@ script:
 
   # Run script to test if Redis is available and working.
   - php tests/redis-test.php
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
