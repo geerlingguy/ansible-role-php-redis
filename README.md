@@ -16,9 +16,9 @@ Available variables are listed below, along with default values (see `defaults/m
 
 (RedHat/CentOS only) If you have enabled any additional repositories (might I suggest geerlingguy.repo-epel or geerlingguy.repo-remi), those repositories can be listed under this variable (e.g. `remi,epel`). This can be handy, as an example, if you want to install the latest version of PHP from Remi's repository.
 
-    php_redis_package: php-pecl-redis
+    php_redis_package: php-redis
 
-(Default for RedHat/CentOS shown). If installing from apt or yum, which package to install which provides the PhpRedis extension.
+(Default for Debian/Ubuntu shown). If installing from apt or yum, which package to install which provides the PhpRedis extension. (For PHP 5.x on Debian, this should be `php5-redis`).
 
 ### Install from source
 
