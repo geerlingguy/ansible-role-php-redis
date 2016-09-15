@@ -1,33 +1,13 @@
 ---
-- hosts: localhost
-  remote_user: root
+- hosts: all
 
   vars:
-    # Because Travis runs on Ubuntu 12.04, PhpRedis is not available via package
-    # so we have to install from source.
-    php_redis_install_from_source: true
     php_enable_webserver: false
-    php_packages:
-      - php5
-      - php5-mcrypt
-      - php5-cli
-      - php5-common
-      - php5-curl
-      - php5-dev
-      - php5-fpm
-      - php5-gd
-      - php-pear
-      - libpcre3-dev
-    php_conf_paths:
-      - /etc/php5/fpm
-      - /etc/php5/apache2
-      - /etc/php5/cli
-    php_extension_conf_paths:
-      - /etc/php5/fpm/conf.d
-      - /etc/php5/apache2/conf.d
-      - /etc/php5/cli/conf.d
+    php_enablerepo: "remi,remi-php70"
 
   roles:
+    - role: geerlingguy.repo-remi
+      when: ansible_os_family == 'RedHat'
     - geerlingguy.redis
     - geerlingguy.php
-    - ansible-role-php-redis
+    - role_under_test
