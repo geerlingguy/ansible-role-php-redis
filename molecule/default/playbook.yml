@@ -1,5 +1,7 @@
 ---
-- hosts: all
+- name: Converge
+  hosts: all
+  become: true
 
   vars:
     php_enable_webserver: false
@@ -13,6 +15,12 @@
   roles:
     - role: geerlingguy.repo-remi
       when: ansible_os_family == 'RedHat'
-    - geerlingguy.redis
-    - geerlingguy.php
-    - role_under_test
+    - role: geerlingguy.redis
+    - role: geerlingguy.php
+    - role: geerlingguy.php-redis
+
+  post_tasks:
+    - name: Run test script to confirm Memcached is reachable via PHP.
+      script: redis-test.php
+      changed_when: false
+      executable: php
