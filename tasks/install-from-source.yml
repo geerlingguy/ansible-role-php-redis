@@ -8,19 +8,19 @@
     depth: 1
 
 - name: Run phpize.
-  shell: >
+  command: >
     phpize
     chdir={{ php_redis_source_clone_dir }}
     creates={{ php_extension_conf_paths[0] }}/redis.ini
 
 - name: Run configure script.
-  shell: >
+  command: >
     {{ php_redis_source_configure_command }}
     chdir={{ php_redis_source_clone_dir }}
     creates={{ php_extension_conf_paths[0] }}/redis.ini
 
 - name: Make and install PHP.
-  shell: >
+  command: >
     {{ item }}
     chdir={{ php_redis_source_clone_dir }}
     creates={{ php_extension_conf_paths[0] }}/redis.ini
