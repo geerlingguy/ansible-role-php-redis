@@ -3,6 +3,7 @@ dependencies:
   - geerlingguy.php
 
 galaxy_info:
+  role_name: php-redis
   author: geerlingguy
   description: PhpRedis support for Linux
   company: "Midwestern Mac, LLC"
