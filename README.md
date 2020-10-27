@@ -1,6 +1,6 @@
 # Ansible Role: PhpRedis
 
-[![Build Status](https://travis-ci.org/geerlingguy/ansible-role-php-redis.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-php-redis)
+[![Build Status](https://travis-ci.com/geerlingguy/ansible-role-php-redis.svg?branch=master)](https://travis-ci.com/geerlingguy/ansible-role-php-redis)
 
 Installs PhpRedis support on Linux.
 
