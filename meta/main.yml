@@ -3,8 +3,7 @@ dependencies:
   - geerlingguy.php
 
 galaxy_info:
-  # See: https://github.com/ansible/galaxy/issues/2393
-  # role_name: php-redis
+  role_name: php-redis
   author: geerlingguy
   description: PhpRedis support for Linux
   company: "Midwestern Mac, LLC"
