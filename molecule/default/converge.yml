@@ -5,7 +5,7 @@
 
   vars:
     php_enable_webserver: false
-    php_enablerepo: "remi,remi-php82"
+    php_enablerepo: "epel,remi,remi-php82"
 
   pre_tasks:
     - name: Update apt cache.
@@ -13,6 +13,8 @@
       when: ansible_os_family == 'Debian'
 
   roles:
+    - role: geerlingguy.repo-epel
+      when: ansible_os_family == 'RedHat'
     - role: geerlingguy.repo-remi
       when: ansible_os_family == 'RedHat'
     - role: geerlingguy.redis

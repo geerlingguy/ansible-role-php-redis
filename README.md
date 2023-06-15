@@ -8,17 +8,19 @@ Installs PhpRedis support on Linux.
 
 This role doesn't *explicitly* require Redis to be installed, but if you don't have the daemon running somewhere (either on the same server, or somewhere else), this role won't be all that helpful. Check out `geerlingguy.redis` for a simple role to install and configure Redis (either on the same server, or separate servers).
 
+On newer RHEL systems, you should also install EPEL (I use the `geerlingguy.repo-epel` role to install this).
+
 ## Role Variables
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    php_enablerepo: ""
+    php_enablerepo: epel
 
 (RedHat/CentOS only) If you have enabled any additional repositories (might I suggest geerlingguy.repo-epel or geerlingguy.repo-remi), those repositories can be listed under this variable (e.g. `remi,epel`). This can be handy, as an example, if you want to install the latest version of PHP from Remi's repository.
 
     php_redis_package: php-redis
 
-(Default for Debian/Ubuntu shown). If installing from apt or yum, which package to install which provides the PhpRedis extension. (For PHP 5.x on Debian, this should be `php5-redis`).
+(Default for Debian/Ubuntu shown). If installing from apt or yum, which package to install which provides the PhpRedis extension.
 
 ### Install from source
 

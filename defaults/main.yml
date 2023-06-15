@@ -1,6 +1,6 @@
 ---
 # Pass in a comma-separated list of repos to use (e.g. "remi,epel").
-php_enablerepo: ""
+php_enablerepo: epel
 
 # Whether to install the extension from source or from an apt or yum repo.
 php_redis_install_from_source: false

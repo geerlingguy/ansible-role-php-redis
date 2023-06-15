@@ -1,4 +1,5 @@
 ---
+- src: geerlingguy.repo-epel
 - src: geerlingguy.repo-remi
 - src: geerlingguy.redis
 - src: geerlingguy.php
