@@ -42,7 +42,7 @@ jobs:
       matrix:
         distro:
           - rockylinux8
-          - ubuntu2004
+          - ubuntu2204
 
     steps:
       - name: Check out the codebase.
