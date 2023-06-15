@@ -54,6 +54,7 @@ The command to configure a PhpRedis source install. You can modify this command 
 
     - hosts: webservers
       roles:
+        - { role: geerlingguy.repo-epel }
         - { role: geerlingguy.php-redis }
 
 ## License
